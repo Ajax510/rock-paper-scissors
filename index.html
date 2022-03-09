@@ -7,19 +7,30 @@
     <title>Rock Paper Scissors</title>
   </head>
   <body>
+    <h1>This Is A Rock Paper Scissors Game</h1>
     <script>
       function computerPlay() {
-        const userInput = Math.floor(Math.random() * 3);
-        if (userInput === 1) {
+        // Any num between 1 and 3, including 3
+        const computerGuess = Math.floor(Math.random() * 3) + 1;
+        if (computerGuess === 1) {
           return "Rock";
-        } else if (userInput === 2) {
+        } else if (computerGuess === 2) {
           return "Paper";
-        } else {
+        } else if (computerGuess === 3) {
           return "Scissors";
         }
       }
       // you are at step 4 on the odin project
-      function singleRound(playerSelection, computerSelection) {}
+      function playRound(playerSelection, computerSelection) {
+        return "You lose! Paper beats Rock";
+      }
+
+      game = () => {
+        playRound();
+        for (let i = 0; i < 5; i++) {
+          console.log(i);
+        }
+      };
     </script>
   </body>
 </html>
