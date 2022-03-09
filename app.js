@@ -24,9 +24,9 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
   let count = 0;
-  playerScore = 0;
-  computerScore = 0;
-  while (count <= 5) {
+  let playerScore = 0;
+  let computerScore = 0;
+  for (let i = 0; i <= 5; i++) {
     playRound();
     count++;
     console.log(count);
