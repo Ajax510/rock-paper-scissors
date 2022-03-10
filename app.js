@@ -1,10 +1,3 @@
-/* The game works as intended but I cannot get the game() function to work.
-The purpose of that function is to add a counter and declare a winner after 5 rounds.
-I checked out the exaples of what other people completed but it seems like thay all 
-had some form of DOM manipulation(have NOT mastered it yet)
-I will continue to work on this in the future to make sure the program is updated
-*/
-
 // Game Begins
 
 // this will assign the players choice when prompted, will also make it lower case
@@ -61,4 +54,3 @@ function game() {
   // console.log() to display the result of each round and the winner at the end
   for (let i = 0; i < 5; i++) {}
 }
-//Game Ends
