@@ -52,5 +52,7 @@ function game() {
   playRound();
   // use a for loop to play 5 rounds
   // console.log() to display the result of each round and the winner at the end
-  for (let i = 0; i < 5; i++) {}
+  for (let i = 0; i < 5; i++) {
+    // havent solved this yet
+  }
 }
