@@ -46,5 +46,3 @@ console.log(playRound(playerSelection, computerSelection));
 
 // this will call the function game() and display to console
 // console.log(game());
-
-// Game ends
