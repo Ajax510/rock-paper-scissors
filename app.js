@@ -41,6 +41,8 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+const buttons = document.querySelector('#choices');
+buttons.addEventListener
 // this will show the results of the playRound function
 console.log(playRound(playerSelection, computerSelection));
 
