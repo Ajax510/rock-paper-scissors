@@ -1,10 +1,7 @@
 // Game Begins
 
-// this will assign the players choice when prompted, will also make it lower case
-let playerSelection = prompt(
-  'Please enter "Rock", "Paper", or "Scissors" to begin.'
-).toLowerCase();
-
+// this will assign the players choice when prompted, will also make it lower cas
+let playerSelection = "";
 // this will be either rock, paper, or scissors
 let computerSelection = computerPlay();
 
@@ -41,10 +38,16 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-const buttons = document.querySelector('#choices');
-buttons.addEventListener
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", playRound);
+
+const paperButton = document.querySelector("#paper");
+paperButton.addEventListener("click", playRound("paper", computerSelection));
+
+const scissorsButton = document.querySelector("scissors");
+scissorsButton.addEventListener(
+  "click",
+  playRound("scissors", computerSelection)
+);
 // this will show the results of the playRound function
 console.log(playRound(playerSelection, computerSelection));
-
-// this will call the function game() and display to console
-// console.log(game());
