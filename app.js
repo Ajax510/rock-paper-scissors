@@ -1,7 +1,7 @@
 // Game Begins
 
 // this will assign the players choice when prompted, will also make it lower cas
-let playerSelection = "";
+let playerSelection;
 // this will be either rock, paper, or scissors
 let computerSelection = computerPlay();
 
@@ -39,15 +39,26 @@ function playRound(playerSelection, computerSelection) {
 }
 
 const rockButton = document.querySelector("#rock");
-rockButton.addEventListener("click", playRound);
+rockButton.addEventListener("click", () => {
+  playerSelection = "rock";
+  playRound(playerSelection, computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+});
 
 const paperButton = document.querySelector("#paper");
-paperButton.addEventListener("click", playRound("paper", computerSelection));
+paperButton.addEventListener("click", () => {
+  playerSelection = "paper";
+  playRound();
+  console.log(playRound(playerSelection, computerSelection));
+});
 
-const scissorsButton = document.querySelector("scissors");
-scissorsButton.addEventListener(
-  "click",
-  playRound("scissors", computerSelection)
-);
-// this will show the results of the playRound function
-console.log(playRound(playerSelection, computerSelection));
+const scissorsButton = document.querySelector("#scissors");
+scissorsButton.addEventListener("click", () => {
+  playerSelection = "scissors";
+  playRound();
+  console.log(playRound(playerSelection, computerSelection));
+});
+
+for (let i = 0; i < 5; i++) {
+  playRound[i];
+}
