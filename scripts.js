@@ -27,16 +27,37 @@ const playRound = (playerSelection, computerSelection) => {
   }
 };
 
+// 5 rounds and
 const game = () => {
+  let playerScore = 0;
+  let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
     console.log(`Round #${i}`);
     let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
     let computerSelection = computerPlay();
+
     console.log(`Player: ${playerSelection}`);
     console.log(`Computer: ${computerSelection}`);
     console.log(playRound(playerSelection, computerSelection));
+    let results = playRound(playerSelection, computerSelection);
+    if (results.includes("win")) {
+      playerScore += 1;
+    } else if (results.includes("lose")) {
+      computerScore += 1;
+    } else if (results.includes("TIE")) {
+      console.log(`-------------------`);
+      continue;
+    }
+
     console.log(`-------------------`);
+  }
+  if (playerScore > computerScore) {
+    console.log(`You win! the Game!`);
+  } else if (playerScore < computerScore) {
+    console.log(`You lose.`);
+  } else if (playerScore === computerScore) {
+    console.log(`Game was a draw.`);
   }
 };
 
-console.log(game());
+game();
