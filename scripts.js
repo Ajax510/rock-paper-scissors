@@ -14,7 +14,7 @@ const computerPlay = () => {
 
 // Plays one round of the game and returns a string
 const playRound = (playerSelection, computerSelection) => {
-  if (playerSelection == "rock" && computerSelection == "scissors") {
+  if (playerSelection === "rock" && computerSelection === "scissors") {
     return `You win! ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection == "paper" && computerSelection == "rock") {
     return `You win! ${playerSelection} beats ${computerSelection}`;
@@ -27,37 +27,59 @@ const playRound = (playerSelection, computerSelection) => {
   }
 };
 
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", () => {
+  playerSelection = "rock";
+  let computerSelection = computerPlay();
+  playRound(playerSelection, computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+});
+
+const paperButton = document.querySelector("#paper");
+paperButton.addEventListener("click", () => {
+  playerSelection = "paper";
+  let computerSelection = computerPlay();
+  playRound(playerSelection, computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+});
+
+const scissorsButton = document.querySelector("#scissors");
+scissorsButton.addEventListener("click", () => {
+  let playerSelection = "scissors";
+  let computerSelection = computerPlay();
+  playRound(playerSelection, computerSelection);
+  console.log(playRound(playerSelection, computerSelection));
+});
+
 // 5 rounds and
-const game = () => {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 1; i <= 5; i++) {
-    console.log(`Round #${i}`);
-    let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    let computerSelection = computerPlay();
+// const game = () => {
+//   let playerScore = 0;
+//   let computerScore = 0;
+//   for (let i = 1; i <= 5; i++) {
+//     console.log(`Round #${i}`);
+//     let playerSelection = prompt("Rock, Paper, or Scissors?").toLowerCase();
 
-    console.log(`Player: ${playerSelection}`);
-    console.log(`Computer: ${computerSelection}`);
-    console.log(playRound(playerSelection, computerSelection));
-    let results = playRound(playerSelection, computerSelection);
-    if (results.includes("win")) {
-      playerScore += 1;
-    } else if (results.includes("lose")) {
-      computerScore += 1;
-    } else if (results.includes("TIE")) {
-      console.log(`-------------------`);
-      continue;
-    }
+//     console.log(`Player: ${playerSelection}`);
+//     console.log(`Computer: ${computerSelection}`);
+//     console.log(playRound(playerSelection, computerSelection));
+//     let results = playRound(playerSelection, computerSelection);
+//     if (results.includes("win")) {
+//       playerScore += 1;
+//     } else if (results.includes("lose")) {
+//       computerScore += 1;
+//     } else if (results.includes("TIE")) {
+//       console.log(`-------------------`);
+//       continue;
+//     }
 
-    console.log(`-------------------`);
-  }
-  if (playerScore > computerScore) {
-    console.log(`You win! the Game!`);
-  } else if (playerScore < computerScore) {
-    console.log(`You lose.`);
-  } else if (playerScore === computerScore) {
-    console.log(`Game was a draw.`);
-  }
-};
-
-game();
+//     console.log(`-------------------`);
+//   }
+//   if (playerScore > computerScore) {
+//     console.log(`You win! the Game!`);
+//   } else if (playerScore < computerScore) {
+//     console.log(`You lose.`);
+//   } else if (playerScore === computerScore) {
+//     console.log(`Game was a draw.`);
+//   }
+// };
+// game();
