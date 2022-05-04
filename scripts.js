@@ -29,26 +29,23 @@ const playRound = (playerSelection, computerSelection) => {
 
 const rockButton = document.querySelector("#rock");
 rockButton.addEventListener("click", () => {
-  playerSelection = "rock";
   let computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
-  console.log(playRound(playerSelection, computerSelection));
+  playRound("rock", computerSelection);
+  console.log(playRound("rock", computerSelection));
 });
 
 const paperButton = document.querySelector("#paper");
 paperButton.addEventListener("click", () => {
-  playerSelection = "paper";
   let computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
-  console.log(playRound(playerSelection, computerSelection));
+  playRound("paper", computerSelection);
+  console.log(playRound("paper", computerSelection));
 });
 
 const scissorsButton = document.querySelector("#scissors");
 scissorsButton.addEventListener("click", () => {
-  let playerSelection = "scissors";
   let computerSelection = computerPlay();
-  playRound(playerSelection, computerSelection);
-  console.log(playRound(playerSelection, computerSelection));
+  playRound("scissors", computerSelection);
+  console.log(playRound("scissors", computerSelection));
 });
 
 // 5 rounds and
