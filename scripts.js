@@ -48,8 +48,6 @@ scissorsButton.addEventListener("click", () => {
   console.log(playRound("scissors", computerSelection));
 });
 
-// git test
-
 // 5 rounds and
 // const game = () => {
 //   let playerScore = 0;
