@@ -29,16 +29,11 @@ const playRound = (playerSelection, computerSelection) => {
 
 const container = document.querySelector(".container");
 
-const rockPlay = () => {
-  let computerSelection = computerPlay();
-  let playerSelection = "rock";
-  playRound("rock", computerSelection);
-  container.textContent = `${playRound(playerSelection, computerSelection)}`;
-  game("rock", computerSelection);
-};
-
 const rockButton = document.querySelector("#rock");
-rockButton.addEventListener("click", rockPlay);
+rockButton.addEventListener("click", () => {
+  let computerSelection = computerPlay();
+  game("rock", computerSelection);
+});
 
 const paperPlay = () => {
   let computerSelection = computerPlay();
@@ -58,30 +53,26 @@ const scissorsPlay = () => {
 const scissorsButton = document.querySelector("#scissors");
 scissorsButton.addEventListener("click", scissorsPlay);
 
-// 5 rounds and
 const game = (playerSelection, computerSelection) => {
   let playerScore = 0;
   let computerScore = 0;
-  for (let i = 1; i <= 5; i++) {
-    let p = document.createElement("p");
-    p.innerText = `Round #${i}; `;
-    container.appendChild(p);
 
+  // 5 rounds to start
+  for (let i = 1; i <= 5; i++) {
     let results = playRound(playerSelection, computerSelection);
     if (results.includes("win")) {
       playerScore += 1;
+      const playerSCore = document.querySelector(".playerScore");
     } else if (results.includes("lose")) {
       computerScore += 1;
     } else if (results.includes("TIE")) {
       continue;
     }
   }
+  console.log(computerScore, playerScore);
   if (playerScore > computerScore) {
-    const player = document.createElement("p");
-    player.innerText = `You win! the Game!`;
-    playerScore.appendChild(player);
+    console.log(`You win! the Game!`);
   } else if (playerScore < computerScore) {
-    const playerScore = document.querySelector(".playerSCore");
     console.log(`You lost the game.`);
   } else if (playerScore === computerScore) {
     console.log(`Game was a draw.`);
