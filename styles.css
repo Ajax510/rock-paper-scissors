@@ -6,6 +6,7 @@ body {
   margin: 10px 50px;
   width: 800px;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   border: 2px solid black;
 }
