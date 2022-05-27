@@ -9,19 +9,24 @@
   </head>
   <body>
     <h1>Rock Paper Scissors Game</h1>
-    <div>
-      <div id="rock">
-        <img src="/images/rock.png" alt="Emoji of rock" />
-      </div>
-      <div id="paper">
-        <img src="/images/paper.png" alt="Emoji of paper." />
-      </div>
-      <div id="scissors">
-        <img src="/images/scissors.png" alt="Emoji of scissors." />
-      </div>
+    <div class="images">
+      <button id="rock">
+        <img src="images/rock.png" alt="Picture of a rock" />
+      </button>
+      <button id="paper">
+        <img src="images/paper.png" alt="Picture of paper" />
+      </button>
+      <button id="scissors">
+        <img src="images/scissors.png" alt="Picture of scissors" />
+      </button>
     </div>
-    <div id="results">
-      <p>Results:</p>
+    <div class="container">
+      <div class="playerScore">
+        <p>Player Score:</p>
+      </div>
+      <div class="computerScore"></div>
+        <p>Computer Score:</p>
+      </div>
     </div>
     <script src="/scripts.js"></script>
   </body>

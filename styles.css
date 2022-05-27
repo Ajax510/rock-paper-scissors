@@ -1,9 +1,11 @@
-img {
-  border: 2px solid black;
-  display: inline-block;
+body {
+  text-align: center;
 }
 
-img:hover {
-  height: 160px;
-  height: 160px;
+.images {
+  margin: 10px 50px;
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid black;
 }
