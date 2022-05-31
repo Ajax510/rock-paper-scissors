@@ -30,6 +30,7 @@ const playRound = (playerSelection, computerSelection) => {
 const container = document.querySelector(".container");
 
 const rockButton = document.querySelector("#rock");
+
 rockButton.addEventListener("click", () => {
   let computerSelection = computerPlay();
   game("rock", computerSelection);
@@ -39,6 +40,7 @@ const paperPlay = () => {
   let computerSelection = computerPlay();
   playRound("paper", computerSelection);
   container.textContent = `${playRound("paper", computerSelection)}`;
+  game("paper", computerSelection);
 };
 
 const paperButton = document.querySelector("#paper");
@@ -48,6 +50,7 @@ const scissorsPlay = () => {
   let computerSelection = computerPlay();
   playRound("scissors", computerSelection);
   container.textContent = `${playRound("scissors", computerSelection)}`;
+  game("scissors", computerSelection);
 };
 
 const scissorsButton = document.querySelector("#scissors");
@@ -62,7 +65,6 @@ const game = (playerSelection, computerSelection) => {
     let results = playRound(playerSelection, computerSelection);
     if (results.includes("win")) {
       playerScore += 1;
-      const playerSCore = document.querySelector(".playerScore");
     } else if (results.includes("lose")) {
       computerScore += 1;
     } else if (results.includes("TIE")) {
