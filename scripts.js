@@ -1,5 +1,3 @@
-// Game Begins
-
 // Computer choice, returns rock, paper, or scissors.
 const computerPlay = () => {
   let computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -35,6 +33,7 @@ const rockPlay = () => {
   let computerSelection = computerPlay();
   let round = playRound("rock", computerSelection);
   results(round);
+  game(round);
 };
 
 // Selecting the rockButton, then adding an eventListener
@@ -47,6 +46,7 @@ const paperPlay = () => {
   let computerSelection = computerPlay();
   let round = playRound("paper", computerSelection);
   results(round);
+  game(round);
 };
 
 // Selecting the paperButton, then adding an eventListener
@@ -59,6 +59,7 @@ const scissorsPlay = () => {
   let computerSelection = computerPlay();
   let round = playRound("scissors", computerSelection);
   results(round);
+  game(round);
 };
 
 // Selecting the scissorsButton, then adding an eventListener
@@ -77,23 +78,29 @@ const results = (resultsToDisplay) => {
 const game = (playerSelection, computerSelection) => {
   let playerScore = 0;
   let computerScore = 0;
+  const displayPlayerScore = document.querySelector(".playerScore");
+  const displayComputerScore = document.querySelector(".computerScore");
+  const displayFinalScore = document.querySelector(".finalScore");
 
   for (let i = 1; i <= 5; i++) {
     let roundResults = playRound(playerSelection, computerSelection);
-    if (results.includes("win")) {
-      playerScore += 1;
+    if (roundResults.includes("win")) {
+      playerScore[i] += 1;
+      displayPlayerScore.innerText = `Player Score: ${playerScore}${[i]}`;
+      container.appendChild(displayPlayerScore);
     } else if (roundResults.includes("lose")) {
-      computerScore += 1;
+      computerScore[i] += 1;
+      displayComputerScore.innerText = `Computer Score: ${computerScore}${[i]}`;
     } else if (roundResults.includes("TIE")) {
       continue;
     }
   }
-  console.log(computerScore, playerScore);
+  console.log("Final Score", computerScore, playerScore);
   if (playerScore > computerScore) {
-    console.log(`You win! the Game!`);
+    displayFinalScore.innerText = `You win! the Game!`;
   } else if (playerScore < computerScore) {
-    console.log(`You lost the game.`);
+    displayFinalScore.innerText = `You lost the game.`;
   } else if (playerScore === computerScore) {
-    console.log(`Game was a draw.`);
+    displayFinalScore.innerText = `Game was a draw.`;
   }
 };
