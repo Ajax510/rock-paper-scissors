@@ -27,47 +27,64 @@ const playRound = (playerSelection, computerSelection) => {
   }
 };
 
+// This is for the continer class and will be used later.
 const container = document.querySelector(".container");
 
-const rockButton = document.querySelector("#rock");
-
-rockButton.addEventListener("click", () => {
+// The function for when you click ROCK.
+const rockPlay = () => {
   let computerSelection = computerPlay();
-  game("rock", computerSelection);
-});
-
-const paperPlay = () => {
-  let computerSelection = computerPlay();
-  playRound("paper", computerSelection);
-  container.textContent = `${playRound("paper", computerSelection)}`;
-  game("paper", computerSelection);
+  let round = playRound("rock", computerSelection);
+  results(round);
 };
 
+// Selecting the rockButton, then adding an eventListener
+// then directing you to the rockPlay function.
+const rockButton = document.querySelector("#rock");
+rockButton.addEventListener("click", rockPlay);
+
+// The function for when you click PAPER.
+const paperPlay = () => {
+  let computerSelection = computerPlay();
+  let round = playRound("paper", computerSelection);
+  results(round);
+};
+
+// Selecting the paperButton, then adding an eventListener
+// then directing you to the paperPlay function.
 const paperButton = document.querySelector("#paper");
 paperButton.addEventListener("click", paperPlay);
 
+// The function for when you click SCISSORS.
 const scissorsPlay = () => {
   let computerSelection = computerPlay();
-  playRound("scissors", computerSelection);
-  container.textContent = `${playRound("scissors", computerSelection)}`;
-  game("scissors", computerSelection);
+  let round = playRound("scissors", computerSelection);
+  results(round);
 };
 
+// Selecting the scissorsButton, then adding an eventListener
+// directing you to the scissorsPlay function.
 const scissorsButton = document.querySelector("#scissors");
 scissorsButton.addEventListener("click", scissorsPlay);
 
+// This function will display the string passed to it from the specific eventListener
+const results = (resultsToDisplay) => {
+  const content = document.querySelector(".content");
+  content.innerText = `${resultsToDisplay}`;
+  container.appendChild(content);
+};
+
+// This function will play the game 5 rounds and declare a winner.
 const game = (playerSelection, computerSelection) => {
   let playerScore = 0;
   let computerScore = 0;
 
-  // 5 rounds to start
   for (let i = 1; i <= 5; i++) {
-    let results = playRound(playerSelection, computerSelection);
+    let roundResults = playRound(playerSelection, computerSelection);
     if (results.includes("win")) {
       playerScore += 1;
-    } else if (results.includes("lose")) {
+    } else if (roundResults.includes("lose")) {
       computerScore += 1;
-    } else if (results.includes("TIE")) {
+    } else if (roundResults.includes("TIE")) {
       continue;
     }
   }
