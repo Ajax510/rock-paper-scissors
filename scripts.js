@@ -12,9 +12,8 @@ const computerPlay = () => {
 
 // Depending on player choice it will return thier choice.
 const playerPlay = () => {
-  let result = ``;
-  result = prompt(`Rock, Paper, Or Scissors?`).toLowerCase();
-  return result;
+  let result = playRound(playerSelection, computerSelection);
+  console.log(result);
 };
 
 // Plays one round of the game and returns a string
@@ -34,32 +33,38 @@ const playRound = (playerSelection, computerSelection) => {
   return result;
 };
 
-const game = () => {
-  let playerScore = 0;
-  let computerScore = 0;
-  for (let i = 1; i <= 5; i++) {
-    let playerSelection = playerPlay();
-    let ComputerSelection = computerPlay();
-    let roundResult = playRound(playerSelection, ComputerSelection);
-    if (roundResult.includes(`win`)) {
-      console.log(roundResult);
-      playerScore += 1;
-    } else if (roundResult.includes(`lose`)) {
-      console.log(roundResult);
-      computerScore += 1;
-    } else {
-      console.log(roundResult);
-      continue;
-    }
-  }
+const rockPlay = () => {
+  const rockButton = document.querySelector("#rock");
 
-  if (playerScore > computerScore) {
-    console.log(`You Have won the game YAY!`);
-  } else if (computerScore > playerScore) {
-    console.log(`You have lost the game BOO!`);
-  } else {
-    console.log(`Game has resulted in a tie AWW!`);
-  }
+  rockButton.addEventListener("click", playerPlay);
 };
 
-game();
+// const game = () => {
+//   let playerScore = 0;
+//   let computerScore = 0;
+//   for (let i = 1; i <= 5; i++) {
+//     let playerSelection = playerPlay();
+//     let ComputerSelection = computerPlay();
+//     let roundResult = playRound(playerSelection, ComputerSelection);
+//     if (roundResult.includes(`win`)) {
+//       console.log(roundResult);
+//       playerScore += 1;
+//     } else if (roundResult.includes(`lose`)) {
+//       console.log(roundResult);
+//       computerScore += 1;
+//     } else {
+//       console.log(roundResult);
+//       continue;
+//     }
+//   }
+
+//   if (playerScore > computerScore) {
+//     console.log(`You Have won the game YAY!`);
+//   } else if (computerScore > playerScore) {
+//     console.log(`You have lost the game BOO!`);
+//   } else {
+//     console.log(`Game has resulted in a tie AWW!`);
+//   }
+// };
+
+// game();
