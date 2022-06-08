@@ -51,16 +51,15 @@ scissorsButton.addEventListener("click", () => {
   let playerSelection = "scissors";
   let computerSelection = computerPlay();
   let result = playRound(playerSelection, computerSelection);
-  console.log(result);
+  let roundResult = game(result);
+  console.log(roundResult);
+  return roundResult;
 });
 
-const game = () => {
+const game = (roundResult) => {
   let playerScore = 0;
   let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
-    let playerSelection = document.querySelectorAll("button");
-    let ComputerSelection = computerPlay();
-    let roundResult = playRound(playerSelection, ComputerSelection);
     if (roundResult.includes(`win`)) {
       console.log(roundResult);
       playerScore += 1;
@@ -81,5 +80,3 @@ const game = () => {
     console.log(`Game has resulted in a tie AWW!`);
   }
 };
-
-game();
