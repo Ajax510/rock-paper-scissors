@@ -28,6 +28,9 @@ const playRound = (playerSelection, computerSelection) => {
 };
 
 const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+const displayResults = document.getElementById("roundResults");
 
 rockButton.addEventListener("click", () => {
   let playerSelection = "rock";
@@ -36,8 +39,6 @@ rockButton.addEventListener("click", () => {
   console.log(result);
 });
 
-const paperButton = document.querySelector("#paper");
-
 paperButton.addEventListener("click", () => {
   let playerSelection = "paper";
   let computerSelection = computerPlay();
@@ -45,21 +46,16 @@ paperButton.addEventListener("click", () => {
   console.log(result);
 });
 
-const scissorsButton = document.querySelector("#scissors");
-
 scissorsButton.addEventListener("click", () => {
-  let playerSelection = "scissors";
-  let computerSelection = computerPlay();
-  let result = playRound(playerSelection, computerSelection);
-  let roundResult = game(result);
-  console.log(roundResult);
-  return roundResult;
+  return "scissors";
 });
 
-const game = (roundResult) => {
+const game = (playerChoice) => {
   let playerScore = 0;
   let computerScore = 0;
   for (let i = 1; i <= 5; i++) {
+    let playerSelection = playerChoice;
+    let roundResult = playRound(playerSelection, computerSelection);
     if (roundResult.includes(`win`)) {
       console.log(roundResult);
       playerScore += 1;
