@@ -54,32 +54,32 @@ scissorsButton.addEventListener("click", () => {
   console.log(result);
 });
 
-// const game = () => {
-//   let playerScore = 0;
-//   let computerScore = 0;
-//   for (let i = 1; i <= 5; i++) {
-//     let playerSelection = document.querySelectorAll("button");
-//     let ComputerSelection = computerPlay();
-//     let roundResult = playRound(playerSelection, ComputerSelection);
-//     if (roundResult.includes(`win`)) {
-//       console.log(roundResult);
-//       playerScore += 1;
-//     } else if (roundResult.includes(`lose`)) {
-//       console.log(roundResult);
-//       computerScore += 1;
-//     } else {
-//       console.log(roundResult);
-//       continue;
-//     }
-//   }
+const game = () => {
+  let playerScore = 0;
+  let computerScore = 0;
+  for (let i = 1; i <= 5; i++) {
+    let playerSelection = document.querySelectorAll("button");
+    let ComputerSelection = computerPlay();
+    let roundResult = playRound(playerSelection, ComputerSelection);
+    if (roundResult.includes(`win`)) {
+      console.log(roundResult);
+      playerScore += 1;
+    } else if (roundResult.includes(`lose`)) {
+      console.log(roundResult);
+      computerScore += 1;
+    } else {
+      console.log(roundResult);
+      continue;
+    }
+  }
 
-//   if (playerScore > computerScore) {
-//     console.log(`You Have won the game YAY!`);
-//   } else if (computerScore > playerScore) {
-//     console.log(`You have lost the game BOO!`);
-//   } else {
-//     console.log(`Game has resulted in a tie AWW!`);
-//   }
-// };
+  if (playerScore > computerScore) {
+    console.log(`You Have won the game YAY!`);
+  } else if (computerScore > playerScore) {
+    console.log(`You have lost the game BOO!`);
+  } else {
+    console.log(`Game has resulted in a tie AWW!`);
+  }
+};
 
-// game();
+game();
