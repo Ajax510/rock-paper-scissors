@@ -10,12 +10,6 @@ const computerPlay = () => {
   }
 };
 
-// Depending on player choice it will return thier choice.
-const playerPlay = () => {
-  let result = playRound(playerSelection, computerSelection);
-  console.log(result);
-};
-
 // Plays one round of the game and returns a string
 const playRound = (playerSelection, computerSelection) => {
   let result = ``;
@@ -33,17 +27,38 @@ const playRound = (playerSelection, computerSelection) => {
   return result;
 };
 
-const rockPlay = () => {
-  const rockButton = document.querySelector("#rock");
+const rockButton = document.querySelector("#rock");
 
-  rockButton.addEventListener("click", playerPlay);
-};
+rockButton.addEventListener("click", () => {
+  let playerSelection = "rock";
+  let computerSelection = computerPlay();
+  let result = playRound(playerSelection, computerSelection);
+  console.log(result);
+});
+
+const paperButton = document.querySelector("#paper");
+
+paperButton.addEventListener("click", () => {
+  let playerSelection = "paper";
+  let computerSelection = computerPlay();
+  let result = playRound(playerSelection, computerSelection);
+  console.log(result);
+});
+
+const scissorsButton = document.querySelector("#scissors");
+
+scissorsButton.addEventListener("click", () => {
+  let playerSelection = "scissors";
+  let computerSelection = computerPlay();
+  let result = playRound(playerSelection, computerSelection);
+  console.log(result);
+});
 
 // const game = () => {
 //   let playerScore = 0;
 //   let computerScore = 0;
 //   for (let i = 1; i <= 5; i++) {
-//     let playerSelection = playerPlay();
+//     let playerSelection = document.querySelectorAll("button");
 //     let ComputerSelection = computerPlay();
 //     let roundResult = playRound(playerSelection, ComputerSelection);
 //     if (roundResult.includes(`win`)) {
