@@ -25,40 +25,21 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Uncomment below to make game play.
-// const playerSelection = prompt("Rock, paper, scissors?").toLocaleLowerCase();
+// Will return player selection as a string.
+function getPlayerChoice() {
+  // let player = prompt("Rock, paper, or scissors?").toLocaleLowerCase();
+  let player = "paper";
+  return player;
+}
 
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
+let playerSelection = getPlayerChoice();
+let computerSelection = getComputerChoice();
 
 // Will play the game 5 times.
 function game() {
-  let playerScore = 0;
-  let computerScore = 0;
-  let result = "";
-
-  // Will loop 5 rounds
-  for (let i = 0; i < 5; i++) {
-    result = playRound();
-    if (result.includes("win")) {
-      playerScore += 1;
-    } else if (result.includes("lose")) {
-      computerScore += 1;
-    } else if (result.includes("tie")) {
-      continue;
-    }
-  }
-  // After all the rounds this will determine a winner.
-  console.log(`Player Score: ${playerScore}`);
-  console.log(`Computer Score: ${computerScore}`);
-
-  if (playerScore > computerScore) {
-    console.log("You have won the game!");
-  } else if (computerScore > playerScore) {
-    console.log("You have lost the game!");
-  } else {
-    console.log("Game was a tie.");
-  }
+  // let playerScore = 0;
+  // let computerScore = 0;
+  for (let i = 0; i < 5; i++) {}
 }
 
-console.log(game());
+game();
