@@ -27,19 +27,33 @@ function playRound(playerSelection, computerSelection) {
 
 // Will return player selection as a string.
 function getPlayerChoice() {
-  // let player = prompt("Rock, paper, or scissors?").toLocaleLowerCase();
-  let player = "paper";
+  let player = prompt("Rock, paper, or scissors?").toLocaleLowerCase();
   return player;
 }
 
-let playerSelection = getPlayerChoice();
-let computerSelection = getComputerChoice();
-
 // Will play the game 5 times.
 function game() {
-  // let playerScore = 0;
-  // let computerScore = 0;
-  for (let i = 0; i < 5; i++) {}
+  let playerScore = 0;
+  let computerScore = 0;
+  let result = "";
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+    result = playRound(playerSelection, computerSelection);
+
+    if (result.includes("win") === true) {
+      playerScore += 1;
+      console.log(result);
+    } else if (result.includes("lose") === true) {
+      computerScore += 1;
+      console.log(result);
+    } else if (result.includes("tie") === true) {
+      console.log("Round was a draw.");
+    }
+  }
+  console.log("Game final score: ------------");
+  console.log(`Your score: ${playerScore}`);
+  console.log(`Computer score: ${computerScore}`);
 }
 
 game();
