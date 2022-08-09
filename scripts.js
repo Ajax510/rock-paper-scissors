@@ -44,14 +44,24 @@ function game() {
     if (result.includes("win") === true) {
       playerScore += 1;
       console.log(result);
+      console.log(`playerScore: ${playerScore}`);
+      console.log(`computerScore: ${computerScore}`);
+      console.log("-----------------------");
     } else if (result.includes("lose") === true) {
       computerScore += 1;
       console.log(result);
+      console.log(`playerScore: ${playerScore}`);
+      console.log(`computerScore: ${computerScore}`);
+      console.log("-----------------------");
     } else if (result.includes("tie") === true) {
       console.log("Round was a draw.");
+      console.log(`playerScore: ${playerScore}`);
+      console.log(`computerScore: ${computerScore}`);
+      console.log("-----------------------");
     }
   }
-  console.log("Game final score: ------------");
+  console.log("-----------------------");
+  console.log("Game final score:");
   console.log(`Your score: ${playerScore}`);
   console.log(`Computer score: ${computerScore}`);
 }
