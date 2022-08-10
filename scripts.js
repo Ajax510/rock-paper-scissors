@@ -51,10 +51,11 @@ scissors.addEventListener("click", () => {
   game(playerSelection);
 });
 
+let playerScore = 0;
+let computerScore = 0;
+
 // Will play the game 5 times.
 function game(playerSelection) {
-  let playerScore = 0;
-  let computerScore = 0;
   let result = "";
 
   let computerSelection = getComputerChoice();
@@ -62,19 +63,22 @@ function game(playerSelection) {
 
   if (result.includes("win")) {
     roundResult.textContent = result;
+    playerScore += 1;
     player_Score.textContent = `player score: ${playerScore}`;
     computer_Score.textContent = `computer score: ${computerScore}`;
-    playerScore += 1;
   } else if (result.includes("lose")) {
-    computerScore += 1;
     roundResult.textContent = result;
-    player_Score.textContent = `playerScore: ${playerScore}`;
-    computer_Score.textContent = `computerScore: ${computerScore}`;
+    computerScore++;
+    player_Score.textContent = `player score: ${playerScore}`;
+    computer_Score.textContent = `computer score: ${computerScore}`;
   } else if (result.includes("tie")) {
     roundResult.textContent = result;
   }
-  playerScore += 1;
   if (playerScore === 5 || computerScore === 5) {
     final_score.textContent = `Game final score: Your score: ${playerScore} ComputerScore: ${computerScore}`;
+  } else if (playerScore === computerScore) {
+    final_score.textContent = "Game resulted in a draw.";
   }
 }
+
+// think about what happens each time you click one of the buttons in terms of the scores
