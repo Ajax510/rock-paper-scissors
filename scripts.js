@@ -25,77 +25,56 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-// Will return player selection as a string.
-// function getPlayerChoice() {
-//   let player = prompt("Rock, paper, or scissors?").toLocaleLowerCase();
-//   return player;
-// }
-
-// Will play the game 5 times.
-// function game() {
-//   let playerScore = 0;
-//   let computerScore = 0;
-//   let result = "";
-//   for (let i = 0; i < 5; i++) {
-//     let playerSelection = getPlayerChoice();
-//     let computerSelection = getComputerChoice();
-//     result = playRound(playerSelection, computerSelection);
-
-//     if (result.includes("win") === true) {
-//       playerScore += 1;
-//       console.log(result);
-//       console.log(`playerScore: ${playerScore}`);
-//       console.log(`computerScore: ${computerScore}`);
-//       console.log("-----------------------");
-//     } else if (result.includes("lose") === true) {
-//       computerScore += 1;
-//       console.log(result);
-//       console.log(`playerScore: ${playerScore}`);
-//       console.log(`computerScore: ${computerScore}`);
-//       console.log("-----------------------");
-//     } else if (result.includes("tie") === true) {
-//       console.log("Round was a draw.");
-//       console.log(`playerScore: ${playerScore}`);
-//       console.log(`computerScore: ${computerScore}`);
-//       console.log("-----------------------");
-//     }
-//   }
-//   console.log("-----------------------");
-//   console.log("Game final score:");
-//   console.log(`Your score: ${playerScore}`);
-//   console.log(`Computer score: ${computerScore}`);
-// }
-
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
-const results = document.querySelector(".results");
 
+const results = document.querySelector(".results");
+const roundResult = document.querySelector(".round-result");
+const player_Score = document.querySelector(".player-score");
+const computer_Score = document.querySelector(".computer-score");
+const final_score = document.querySelector(".final-score");
+
+let playerSelection = "";
 rock.addEventListener("click", () => {
-  playerSelection = "rock";
-  console.log(playerSelection);
-  let computerSelection = getComputerChoice();
-  console.log(computerSelection);
-  let result = playRound(playerSelection, computerSelection);
-  console.log(result);
+  let playerSelection = "rock";
+  game(playerSelection);
 });
 
 paper.addEventListener("click", () => {
   playerSelection = "paper";
-  console.log(playerSelection);
-  let computerSelection = getComputerChoice();
-  console.log(computerSelection);
-  let result = playRound(playerSelection, computerSelection);
-  console.log(result);
+  game(playerSelection);
 });
 
 scissors.addEventListener("click", () => {
   playerSelection = "scissors";
-  console.log(playerSelection);
-  let computerSelection = getComputerChoice();
-  console.log(computerSelection);
-  let result = playRound(playerSelection, computerSelection);
-  console.log(result);
+  game(playerSelection);
 });
 
-//game();
+// Will play the game 5 times.
+function game(playerSelection) {
+  let playerScore = 0;
+  let computerScore = 0;
+  let result = "";
+
+  let computerSelection = getComputerChoice();
+  result = playRound(playerSelection, computerSelection);
+
+  if (result.includes("win")) {
+    roundResult.textContent = result;
+    player_Score.textContent = `player score: ${playerScore}`;
+    computer_Score.textContent = `computer score: ${computerScore}`;
+    playerScore += 1;
+  } else if (result.includes("lose")) {
+    computerScore += 1;
+    roundResult.textContent = result;
+    player_Score.textContent = `playerScore: ${playerScore}`;
+    computer_Score.textContent = `computerScore: ${computerScore}`;
+  } else if (result.includes("tie")) {
+    roundResult.textContent = result;
+  }
+  playerScore += 1;
+  if (playerScore === 5 || computerScore === 5) {
+    final_score.textContent = `Game final score: Your score: ${playerScore} ComputerScore: ${computerScore}`;
+  }
+}
